@@ -18,4 +18,16 @@ describe('MarkdownInputComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('convertToHtml should convert input text to html', () => {
+    component.inputText = '# Heading 1';
+    component.convertToHtml();
+    expect(component.convertedHtml).toBe('<h1>Heading 1</h1>');
+  });
+
+  it('clearHtml should clear converted html', () => {
+    component.convertedHtml = '<h1>Heading 1</h1>';
+    component.clearHtml();
+    expect(component.convertedHtml).toBe('');
+  });
 });
